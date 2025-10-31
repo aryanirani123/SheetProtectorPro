@@ -1,0 +1,53 @@
+/* REUSABLE STYLES */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Google Sans', sans-serif; background: #f8f9fa; color: #202124; }
+a { color: #1a73e8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* LAYOUT */
+.docs-layout { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 260px; background: white; border-right: 1px solid #dadce0;
+  padding: 24px; position: fixed; height: 100%; overflow-y: auto;
+}
+.logo { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 600; margin-bottom: 32px; color: #1a73e8; }
+nav a { display: block; padding: 10px 0; color: #5f6368; font-weight: 500; }
+nav a:hover, nav a.active { color: #1a73e8; border-left: 3px solid #1a73e8; padding-left: 21px; }
+.version { margin-top: 40px; font-size: 13px; color: #9aa0a6; }
+
+.content { flex: 1; margin-left: 260px; padding: 40px; max-width: 900px; }
+h1 { font-size: 36px; margin-bottom: 16px; }
+h2 { font-size: 24px; margin: 32px 0 16px; color: #1a73e8; }
+h3 { font-size: 20px; margin: 24px 0 12px; }
+p, li { margin-bottom: 16px; font-size: 15px; line-height: 1.6; }
+ul, ol { padding-left: 24px; }
+code { background: #f1f3f4; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+
+.search { width: 100%; max-width: 500px; padding: 12px 16px; border: 1px solid #dadce0; border-radius: 8px; font-size: 16px; margin: 24px 0; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin: 40px 0; }
+.card { background: white; padding: 24px; border-radius: 12px; border: 1px solid #dadce0; text-align: center; transition: all 0.2s; }
+.card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.card .material-icons { font-size: 36px; color: #1a73e8; margin-bottom: 12px; }
+
+.tip { background: #e8f0fe; padding: 16px; border-radius: 8px; border-left: 4px solid #1a73e8; margin: 24px 0; }
+.faq-item, .log-entry { background: white; padding: 20px; border-radius: 8px; border: 1px solid #dadce0; margin-bottom: 20px; }
+
+.support { text-align: center; margin-top: 60px; color: #5f6368; font-size: 14px; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .docs-layout { flex-direction: column; }
+  .sidebar { width: 100%; position: relative; height: auto; border-right: none; border-bottom: 1px solid #dadce0; }
+  .content { margin-left: 0; padding: 24px; }
+}
+
+.screenshot {
+  width: 450px;           /* Your desired width */
+  max-width: 100%;        /* Never overflows container */
+  height: auto;           /* Preserves aspect ratio */
+  display: block;         /* Removes bottom gap */
+  margin: 12px 0;         /* Spacing */
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
