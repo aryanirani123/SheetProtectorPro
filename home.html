@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sheet Protector Pro – Lock Formulas & Ranges</title>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="icon" href="https://i.ibb.co/vx7xydXv/Application-Icon3.png" type="image/png">
+  <style>
+    :root {
+      --primary: #1a73e8;
+      --success: #137333;
+      --danger: #d93025;
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --text: #3c4043;
+      --text-light: #5f6368;
+      --border: #dadce0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Google Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #1a73e8, #0d5c2a);
+      color: white;
+      border-radius: 20px;
+      margin: 40px 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .hero .logo {
+      width: 90px;
+      height: 90px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .hero .tagline {
+      font-size: 19px;
+      opacity: 0.95;
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: white;
+      color: var(--primary);
+      font-weight: 600;
+      border-radius: 28px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: all 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* FEATURES */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin: 80px 0;
+    }
+    .feature-card {
+      background: var(--card);
+      padding: 28px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+    .feature-card img {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 16px;
+    }
+    .feature-card h3 {
+      font-size: 18px;
+      color: #202124;
+      margin-bottom: 8px;
+    }
+
+    /* CAROUSEL */
+    .carousel-section {
+      margin: 80px 0;
+      text-align: center;
+    }
+    .carousel-section h2 {
+      font-size: 28px;
+      color: #202124;
+      margin-bottom: 32px;
+    }
+    .swiper {
+      padding: 20px 0;
+      border-radius: 16px;
+    }
+    .swiper-slide {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .swiper-pagination-bullet-active {
+      background: var(--primary);
+    }
+
+    /* PRICING */
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 80px 0;
+    }
+    .price-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .price-card.featured {
+      border: 2px solid var(--primary);
+      transform: scale(1.05);
+      box-shadow: 0 12px 32px rgba(26,115,232,0.2);
+    }
+    .price-card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #202124;
+    }
+    .price {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 16px 0;
+    }
+    .price small {
+      font-size: 16px;
+      color: var(--text-light);
+    }
+    .price-card ul {
+      text-align: left;
+      margin: 24px 0;
+      list-style: none;
+    }
+    .price-card li {
+      padding: 8px 0;
+      font-size: 15px;
+      position: relative;
+      padding-left: 28px;
+    }
+    .price-card li:before {
+      content: "✓";
+      color: var(--success);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    .price-card .btn {
+      margin-top: 24px;
+      width: 100%;
+    }
+    .enterprise-btn {
+      background: #9334e6;
+      color: white;
+    }
+    .enterprise-btn:hover {
+      background: #7e2bc7;
+    }
+
+    /* SUPPORT */
+    .support {
+      text-align: center;
+      padding: 60px 20px;
+      background: white;
+      border-radius: 16px;
+      margin: 60px 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .support h2 {
+      font-size: 26px;
+      margin-bottom: 16px;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-light);
+      font-size: 14px;
+      border-top: 1px solid var(--border);
+      margin-top: 80px;
+    }
+    .footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 28px; }
+      .hero .tagline { font-size: 17px; }
+      .price-card.featured { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <img src="https://i.ibb.co/vx7xydXv/Application-Icon3.png" alt="Sheet Protector Pro" class="logo">
+      <h1>Sheet Protector Pro</h1>
+      <p class="tagline">Enterprise-grade protection for Google Sheets. Lock formulas, ranges, and sheets — instantly.</p>
+      <a href="" class="btn" target="_blank">
+        Coming Soon to Marketplace
+      </a>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <div class="feature-card">
+        <img src="https://img.icons8.com/color/56/lock.png" alt="Lock">
+        <h3>Auto-Lock Formulas</h3>
+        <p>Protect every formula cell in one click. No overwrites.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://img.icons8.com/color/56/protect.png" alt="Range">
+        <h3>Range Protection</h3>
+        <p>Lock inputs. Allow edits. Custom editors supported.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://img.icons8.com/color/56/shield.png" alt="Sheet">
+        <h3>Full Sheet Lock</h3>
+        <p>Warning or full lock. Live status badge.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://img.icons8.com/color/56/export-csv.png" alt="Log">
+        <h3>Export Audit Log</h3>
+        <p>Compliance-ready. Track every action.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://img.icons8.com/color/56/undo.png" alt="Undo">
+        <h3>Undo Last Action</h3>
+        <p>Fix mistakes instantly. No data loss.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://img.icons8.com/color/56/search.png" alt="Search">
+        <h3>Smart Search</h3>
+        <p>Filter by sheet or range. Live refresh.</p>
+      </div>
+    </section>
+
+    <!-- CAROUSEL -->
+    <section class="carousel-section">
+      <h2>See It in Action</h2>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="https://i.ibb.co/gZ2shvvT/lock-formulas.png" alt="Lock Formulas">
+          </div>
+          <div class="swiper-slide">
+            <img src="https://i.ibb.co/cVZYFpC/lock-range.png" alt="Protect Range">
+          </div>
+          <div class="swiper-slide">
+            <img src="https://i.ibb.co/dJjWQ1tP/export-log.png" alt="Export Log">
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing">
+      <div class="price-card">
+        <h3>Free</h3>
+        <div class="price">$0<span small>/forever</span></div>
+        <ul>
+          <li>Auto-lock formulas</li>
+          <li>Range & sheet protection</li>
+          <li>Export audit log</li>
+          <li>Undo last action</li>
+          <li>Basic search & refresh</li>
+        </ul>
+        <a href="https://workspace.google.com/marketplace/app/sheet_protector_pro/YOUR-ID" class="btn" style="background:#137333; color:white;">
+          Install Free
+        </a>
+      </div>
+
+      <div class="price-card featured">
+        <h3>Pro</h3>
+        <div class="price">$4.99<span small>/user/month</span></div>
+        <ul>
+          <li>Everything in Free</li>
+          <li>Unlimited protections</li>
+          <li>Bulk actions (multi-select)</li>
+          <li>Dark mode</li>
+          <li>Smart search & refresh</li>
+          <li>API access</li>
+          <li>Priority email support</li>
+          <li>Advanced analytics</li>
+          <li><em>Coming Q1 2026</em></li>
+        </ul>
+        <a href="mailto:aryanirani123@gmail.com?subject=Pro%20Plan%20Interest" class="btn">
+          Get Notified
+        </a>
+      </div>
+
+      <div class="price-card">
+        <h3>Enterprise</h3>
+        <div class="price">Custom</div>
+        <ul>
+          <li>SSO & domain control</li>
+          <li>Custom integrations</li>
+          <li>Dedicated support</li>
+          <li>Compliance & SLA</li>
+          <li>White-label option</li>
+          <li>On-premise deployment</li>
+        </ul>
+        <a href="mailto:aryanirani123@gmail.com?subject=Enterprise%20Inquiry" class="btn enterprise-btn">
+          Contact Sales
+        </a>
+      </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section class="support">
+      <h2>Need Help?</h2>
+      <p>Email us at aryanirani123@gmail.com</a></p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>© 2025 Aryan Irani. All rights reserved.</p>
+      <p>
+        <a href="privacy.html">Privacy</a> •
+        <a href="terms.html">Terms</a> •
+        <a href="support.html">Support</a>
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      autoplay: { delay: 4000 },
+      effect: 'fade',
+      fadeEffect: { crossFade: true }
+    });
+
+    // Click to open image in lightbox (simple)
+    document.querySelectorAll('.swiper-slide img').forEach(img => {
+      img.onclick = () => {
+        const lightbox = document.createElement('div');
+        lightbox.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;z-index:9999;cursor:pointer;';
+        const large = document.createElement('img');
+        large.src = img.src;
+        large.style.cssText = 'max-width:90%;max-height:90%;border-radius:12px;';
+        lightbox.appendChild(large);
+        lightbox.onclick = () => lightbox.remove();
+        document.body.appendChild(lightbox);
+      };
+    });
+  </script>
+</body>
+</html>
